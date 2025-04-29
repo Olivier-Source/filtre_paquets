@@ -1,0 +1,15 @@
+- name: Filtre les paquets de la variable paquets afin de savoir si un paquet défini est présent - recherche basique 
+  debug:
+    msg: "{{ paquets | select('contains', filtre) }}"
+  tags:
+    - filtre
+    - paquets
+  when: type_filtre == "basique"
+
+- name: Filtre les paquets de la variable paquets afin de savoir si un paquet défini est présent - recherche par expression
+  debug:
+    msg: "{{ paquets | select('search', filtre) }}"
+  tags:
+    - filtre
+    - paquets
+  when: type_filtre == "expression_rationnelle"

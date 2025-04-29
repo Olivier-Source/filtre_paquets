@@ -1,0 +1,25 @@
+---
+argument_specs:
+  main:
+    short_description: Mon role incroyable qui permet de filtrer les paquets afin de savoir si un paquet est présent
+    description:
+      - Ce role permet de filtrer les paquets afin de savoir si un paquet est présent
+      - Il est très utile pour savoir si un paquet est présent sur une machine
+      - Il est necessaire de lui passer une variable de type liste contenant les paquets installés sur la machine
+      - Il est dépendant du role liste_paquets
+    options:
+      filtre:
+        description:
+          - Le nom du paquet à filtrer
+        type: str
+        required: true
+      
+      type_filtre:
+        description:
+          - Permet de définir le type de filtre a appliquer
+        type: str
+        required: false
+        default: basique
+        choices:
+          - basique
+          - expression_rationnelle
